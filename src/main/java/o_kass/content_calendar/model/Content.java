@@ -1,23 +1,23 @@
 package o_kass.content_calendar.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import org.springframework.data.annotation.Id;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+/*
+ * @Id: An annotation from Spring Data that specifies
+ * the primary key of the entity.
+  @Column: An annotation that specifies the database column name
+for the field it annotates.
+ */
 public record Content(
         @Id
         Integer id,
-        @NotBlank
         String title,
-        @NotBlank
+        @Column(value = "description")
         String desc,
         Status status,
         Type contentType,
-        @NotBlank
         LocalDateTime dateCreated,
         LocalDateTime dateUpdated,
         String url
